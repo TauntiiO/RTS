@@ -36,8 +36,10 @@ public class UnitSelectionBox : MonoBehaviour
         // When Dragging
         if (Input.GetMouseButton(0))
         {
-            UnitSelectionManager.Instance.DeselectAll();
-            SelectUnits();
+            if (boxVisual.rect.width > 0 || boxVisual.rect.height > 0) {
+                UnitSelectionManager.Instance.DeselectAll();
+                SelectUnits();
+            }
 
             endPosition = Input.mousePosition;
             DrawVisual();
